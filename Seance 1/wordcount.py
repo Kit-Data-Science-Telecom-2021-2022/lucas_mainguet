@@ -53,7 +53,7 @@ def print_words(filename):
                     w_count[w]+=1
         sorted_words = sorted(w_count.keys())
         #print(w_count)
-        with open('word_count.md','w') as f:
+        with open('word_count.txt','w') as f:
             for w in sorted_words:
                 f.write(f"{w} {w_count[w]} \n")
                 
@@ -74,7 +74,7 @@ def print_top(filename):
         liste_tuples=list(zip(words,count))
         liste_tuples.sort(key=lambda x:x[1],reverse=True)
         #print(w_count)
-        with open('word_count_top.md','w') as f:
+        with open('word_count_top.txt','w') as f:
             for i in range(20):
                 f.write(f"{liste_tuples[i][0]} {liste_tuples[i][1]} \n")
 
@@ -89,7 +89,7 @@ def print_top(filename):
 # calls the print_words() and print_top() functions which you must define.
 def main():
   if len(sys.argv) != 3:
-    print 'usage: ./wordcount.py {--count | --topcount} file'
+    print('usage: ./wordcount.py {--count | --topcount} file')
     sys.exit(1)
 
   option = sys.argv[1]
@@ -99,7 +99,7 @@ def main():
   elif option == '--topcount':
     print_top(filename)
   else:
-    print 'unknown option: ' + option
+    print('unknown option: ' + option)
     sys.exit(1)
 
 if __name__ == '__main__':
